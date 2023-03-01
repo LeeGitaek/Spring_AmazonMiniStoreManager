@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+  <html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header"/>
+  <body>
+  <div class="container">
+      <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+<div> <div>
+              <form th:object="${orderSearch}" class="form-inline">
+                  <div class="form-group mb-2">
+<input type="text" th:field="*{memberName}" class="form- control" placeholder="Member Name"/>
+                  </div>
+                  <div class="form-group mx-sm-1 mb-2">
+<select th:field="*{orderStatus}" class="form-control"> <option value="">Order Status</option>
+                          <option th:each=
+                 "status : ${T(com.jpabook.jpashop.domain.OrderStatus).values()}"
+                                  th:value="${status}"
+                                  th:text="${status}">option
+                          </option>
+                      </select>
+                  </div>
+<button type="submit" class="btn btn-primary mb-2">Search</button> </form>
+</div>
+          <table class="table table-striped">
+              <thead>
+ <tr>
+
+  <th>#</th> <th>Member</th> <th>Product</th> <th>Price</th> <th>Quantity</th> <th>Status</th> <th>Date</th> <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${orders}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.member.name}"></td>
+                <td th:text="${item.orderItems[0].item.name}"></td>
+                <td th:text="${item.orderItems[0].orderPrice}"></td>
+                <td th:text="${item.orderItems[0].count}"></td>
+                <td th:text="${item.status}"></td>
+                <td th:text="${item.orderDate}"></td>
+                <td>
+                    <a th:if="${item.status.name() == 'ORDER'}" href="#"
+th:href="'javascript:cancel('+${item.id}+')'"
+                       class="btn btn-danger">CANCEL</a>
+                </td>
+</tr>
+            </tbody>
+        </table>
+</div>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+<script>
+    function cancel(id) {
+        var form = document.createElement("form");
+        form.setAttribute("method", "post");
+                   form.setAttribute("action", "/orders/" + id + "/cancel");
+          document.body.appendChild(form);
+          form.submit();
+} </script>
+</html>

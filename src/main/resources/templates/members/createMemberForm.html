@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+  <html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header" />
+  <style>
+      .fieldError {
+          border-color: #bd2130;
+} </style>
+  <body>
+  <div class="container">
+      <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+      <form action="/members/new" th:object="${memberForm}" method="post">
+<div class="form-group">
+<label th:for="name">Name</label>
+<input type="text" th:field="*{name}" class="form-control" placeholder="Input your name">
+          </div>
+          <div class="form-group">
+<label th:for="city">City</label>
+<input type="text" th:field="*{city}" class="form-control" placeholder="Input your city"> </div>
+<div class="form-group">
+<label th:for="street">Street</label>
+<input type="text" th:field="*{street}" class="form-control" placeholder="Input your street">
+          </div>
+          <div class="form-group">
+<label th:for="zipcode">Zipcode</label>
+<input type="text" th:field="*{zipcode}" class="form-control"
+placeholder="Input your zipcode"> </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+<br/>
+      <div th:replace="fragments/footer :: footer" />
+  </div> <!-- /container -->
+  </body>
+  </html>

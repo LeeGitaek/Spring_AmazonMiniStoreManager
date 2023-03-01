@@ -1,0 +1,26 @@
+spring:
+    datasource:
+        url: jdbc:h2:tcp://localhost/~/jpashop;
+        username: sa
+        password:
+        driver-class-name: org.h2.Driver
+
+    jpa:
+        hibernate:
+            ddl-auto: create
+        properties:
+            hibernate:
+#                show_sql: true 
+                format_sql: true 
+
+        # Database
+    #  datasource:
+ #       driver-class-name: org.postgresql.Driver
+ #       url: jdbc:postgresql://localhost:5432/root
+ #       username: root
+#      password: gitaeklee96
+
+logging:
+    level: 
+        org.hibernate.SQL: debug 
+        org.hibernate.type: trace

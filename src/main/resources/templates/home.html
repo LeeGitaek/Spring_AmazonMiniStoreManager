@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>amazon mini</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div class = "container">
+        <div th:replace="fragments/bodyHeader :: bodyHeader" />
+
+        <div class = "jumbotron">
+            <h1> Amazon Mini Book Store Manager</h1>
+
+            <p class = "lead"> Member </p>
+            <p> 
+                <a class = "btn btn-lg btn-secondary" href="/members/new">Sign Up </a> 
+                <a class = "btn btn-lg btn-secondary" href="/members"> Member List </a>
+            </p>
+
+            <p class = "lead">Product</p>
+             <p> 
+                <a class = "btn btn-lg btn-secondary" href="/items/new">Register Product </a> 
+                <a class = "btn btn-lg btn-secondary" href="/items"> Product List</a>
+            </p>
+
+            <p class = "lead">Order</p>
+            <p> 
+                <a class = "btn btn-lg btn-secondary" href="/order">Order </a> 
+                <a class = "btn btn-lg btn-secondary" href="/orders"> My Order </a>
+            </p>
+        </div>
+
+        <div th:replace="fragments/footer :: footer" />
+
+    </div>
+</body>
+</html>

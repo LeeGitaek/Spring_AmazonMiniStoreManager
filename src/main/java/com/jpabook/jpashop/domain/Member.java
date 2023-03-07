@@ -5,7 +5,11 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany; 
+import javax.persistence.OneToMany;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +27,7 @@ public class Member {
 
     private String name;
 
+    @JsonIgnore
     @Embedded // 내장타입
     private Address address;
 

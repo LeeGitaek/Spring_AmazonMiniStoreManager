@@ -9,7 +9,10 @@ import javax.persistence.criteria.*;
 import org.springframework.util.StringUtils;
 
 import org.springframework.stereotype.Repository;
+
 import com.jpabook.jpashop.domain.Order;
+import com.jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto;
+
 import lombok.RequiredArgsConstructor;
 
 @Repository

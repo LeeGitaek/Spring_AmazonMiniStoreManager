@@ -31,6 +31,7 @@ public class Member {
     @Embedded // 내장타입
     private Address address;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "member") // 매핑된 것.
     private List<Order> orders = new ArrayList<>();
 }

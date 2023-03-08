@@ -7,9 +7,10 @@ import com.jpabook.jpashop.domain.Address;
 import com.jpabook.jpashop.domain.OrderStatus;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-// @EqualsAndHashCode(of = "orderId")
+@EqualsAndHashCode(of = "orderId")
 public class OrderQueryDto {
 
     private Long orderId;
